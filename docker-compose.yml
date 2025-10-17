@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Server=db,1433;Database=TasksManager;User Id=sa;Password=Your_password123;TrustServerCertificate=True;
+      Jwt__Issuer: TasksManager
+      Jwt__Audience: TasksManagerClient
+      Jwt__Secret: ChangeMeToAStrongSecretKey1234567890
+      Jwt__TokenLifetimeMinutes: 60
+    depends_on:
+      - db
+    networks:
+      - tasksmanager
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Your_password123
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - tasksmanager
+
+networks:
+  tasksmanager:
+    driver: bridge
+
+volumes:
+  sqlserver-data:
