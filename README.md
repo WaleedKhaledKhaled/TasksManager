@@ -35,7 +35,7 @@ The app reads its settings from environment variables. Create a `.env` file or e
 
 | Variable | Purpose | Default value |
 | --- | --- | --- |
-| `ConnectionStrings__DefaultConnection` | SQL Server connection string | `Server=localhost,1433;Database=TasksManager;User Id=sa;Password=Your_password123;TrustServerCertificate=True;` |
+| `ConnectionStrings__DefaultConnection` | SQL Server connection string | `Server=.;Database=TasksManager;User Id=sa;Password=Your_password123;TrustServerCertificate=True;` |
 | `Jwt__Issuer` | JWT token issuer | `TasksManager` |
 | `Jwt__Audience` | JWT audience | `TasksManagerClient` |
 | `Jwt__Secret` | Symmetric signing key (use 32+ characters) | `SuperSecretDevelopmentKeyChangeMe1234567890` |
