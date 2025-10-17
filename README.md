@@ -15,7 +15,7 @@ The repository includes a `global.json` file that locks the SDK version so you g
 Clone the project and open the folder:
 
 ```bash
-git clone <your-fork-url>
+git clone https://github.com/WaleedKhaledKhaled/TasksManager.git
 cd TasksManager
 ```
 
